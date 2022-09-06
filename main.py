@@ -56,14 +56,14 @@ def compute_best_action(times: list, goal_time: datetime):
         .create(
         body=msg,
         from_='+19793104958',
-        to='+12148031594'
+        to=os.environ['PHONE_NUMBER']
     )
     print(message)
 
 
 if __name__ == '__main__':
     load_dotenv()
-    goal_time_unaware = datetime(2022, 9, 2, 9, 50)
+    goal_time_unaware = datetime(2022, 9, 6, 11, 50)
     timezone = pytz.timezone('US/Central')
     goal_time = timezone.localize(goal_time_unaware)
     compute_best_action(get_bus_timings(), goal_time)
